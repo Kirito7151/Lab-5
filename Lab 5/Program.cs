@@ -37,12 +37,48 @@ for(int i = 0; i < numStudents; i++)
     names[i] = Console.ReadLine();
 }
 
-foreach(string n in names);
-
-
 string[] userNames = MakeUserNameList(names);
+int[] studentID = MakeStudentIDs(names.Length);
+int[] studentLockers = MakeStudentLockers(names.Length);
 
+int userChoice;
 
+do{
+    DisplayAllStudents(names);
+    System.Console.Write("Which student would you like to see more information on? (-1 to exit)");
+    userChoice = Convert.ToInt32(Console.ReadLine());
+
+    if(userChoice != -1)
+    {
+        DisplaySpecificStudentInformation(names, userNames, userChoice);
+    }
+}while(userChoice != -1);
+
+DisplayAllStudents(names);
+System.Console.Write("Which student would you like to see more information on?");
+DisplaySpecificStudentInformation(names, userNames, studentID, studentLockers, userChoice);
+
+static void DisplayAllStudents(string[] names)
+{
+    for(int i = 0; i < names.Length; i++)
+    {
+        System.Console.WriteLine($"{i+1}. {names[i]}");
+    }
+}
+
+static void DisplayStudentInformation(string[] names, string[] userNames, int[] studentID, int[] studentLockers)
+{
+    for(int i = 0; i < names.Length; i++)
+{
+    System.Console.Write(names[i])
+}
+    {
+        System.Console.WriteLine(names[i]);
+        System.Console.WriteLine(userNames[i]);
+        System.Console.WriteLine(studentID[i]);
+        System.Console.WriteLine(studentLockers[i]);
+    }
+}
 static string[] MakeUserNameList(string[] names)
 {
     string[] userNames = new string[names.Length];
